@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+home
+{% endblock %}
+{% block content %}
+	{% include 'messa.html' %}
+	<!-- Start retroy layout blog posts -->
+	<section class="section bg-light">
+		<div class="container">
+			<div class="row align-items-stretch retro-layout">
+				
+				<div class="col-md-4">
+					{% for i in blog_obj_travel_2 %}
+					<a href="{% url 'single-blog' i.blog_slug %}" class="h-entry mb-30 v-height gradient">
+
+						<div class="featured-img" style="background-image: url('{{i.image.url}}');"></div>
+
+						<div class="text">
+							<span class="date">{{i.created_at}}</span>
+							<h2>{{i.title}}</h2>
+						</div>
+					</a>
+					{% endfor %}
+				</div>
+				
+				<div class="col-md-4">
+					{% if blog_obj_sports_1 %}
+					<a href="{% url 'single-blog' blog_obj_sports_1.blog_slug %}" class="h-entry img-5 h-100 gradient">
+
+						<div class="featured-img" style="background-image: url('{{blog_obj_sports_1.image.url}}');"></div>
+
+						<div class="text">
+							<span class="date">{{blog_obj_sports_1.created_at}}</span>
+							<h2>{{blog_obj_sports_1.title}}</h2>
+						</div>
+					</a>
+					{% endif %}
+				</div>
+				<div class="col-md-4">
+					{% for i in blog_obj_education_2 %}
+					<a href="{% url 'single-blog' i.blog_slug %}" class="h-entry mb-30 v-height gradient">
+
+						<div class="featured-img" style="background-image: url('{{i.image.url}}');"></div>
+
+						<div class="text">
+							<span class="date">{{i.created_at}}</span>
+							<h2>{{i.title}}</h2>
+						</div>
+					</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End retroy layout blog posts -->
+
+	<!-- Start posts-entry -->
+	<section class="section posts-entry">
+		<div class="container">
+			<div class="row mb-4">
+				<div class="col-sm-6">
+					<h2 class="posts-entry-title">Travel</h2>
+				</div>
+				<div class="col-sm-6 text-sm-end"><a href="category.html" class="read-more">View All</a></div>
+			</div>
+			<div class="row g-3">
+				<div class="col-md-9">
+					<div class="row g-3">
+						{% for i in blog_obj_travel_3_to_5 %}
+						<div class="col-md-6">
+							<div class="blog-entry">
+								<a href="{% url 'single-blog' i.blog_slug %}" class="img-link">
+									<img src="{{i.image.url}}" alt="Image" class="img-fluid">
+								</a>
+								<span class="date">{{i.created_at}}</span>
+								<h2><a href="single.html">{{i.title}}</a></h2>
+								<p>{{i.description | truncatechars:100}}</p>
+								<p><a href="{% url 'single-blog' i.blog_slug %}" class="btn btn-sm btn-outline-primary">Read More</a></p>
+							</div>
+						</div>
+						{% endfor %}
+						
+					</div>
+				</div>
+				<div class="col-md-3">
+					<ul class="list-unstyled blog-entry-sm">
+						{% for i in blog_obj_travel_1_to_3 %}
+						<li>
+							<span class="date">Apr. 14th, 2022</span>
+							<h3><a href="single.html">{{i.title}}</a></h3>
+							<p>{{i.description | truncatechars:70}}</p>
+							<p><a href="{% url 'single-blog' i.blog_slug %}" class="read-more">Continue Reading</a></p>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End posts-entry -->
+
+	<!-- Start posts-entry -->
+	<section class="section posts-entry posts-entry-sm bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-3">
+					<div class="blog-entry">
+						<a href="single.html" class="img-link">
+							<img src="/static/images/img_1_horizontal.jpg" alt="Image" class="img-fluid">
+						</a>
+						<span class="date">Apr. 14th, 2022</span>
+						<h2><a href="single.html">Thought you loved Python? Wait until you meet Rust</a></h2>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+						<p><a href="#" class="read-more">Continue Reading</a></p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="blog-entry">
+						<a href="single.html" class="img-link">
+							<img src="/static/images/img_2_horizontal.jpg" alt="Image" class="img-fluid">
+						</a>
+						<span class="date">Apr. 14th, 2022</span>
+						<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+						<p><a href="#" class="read-more">Continue Reading</a></p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="blog-entry">
+						<a href="single.html" class="img-link">
+							<img src="/static/images/img_3_horizontal.jpg" alt="Image" class="img-fluid">
+						</a>
+						<span class="date">Apr. 14th, 2022</span>
+						<h2><a href="single.html">UK sees highest inflation in 30 years</a></h2>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+						<p><a href="#" class="read-more">Continue Reading</a></p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="blog-entry">
+						<a href="single.html" class="img-link">
+							<img src="/static/images/img_4_horizontal.jpg" alt="Image" class="img-fluid">
+						</a>
+						<span class="date">Apr. 14th, 2022</span>
+						<h2><a href="single.html">Don’t assume your user data in the cloud is safe</a></h2>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+						<p><a href="#" class="read-more">Continue Reading</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End posts-entry -->
+
+	<!-- Start posts-entry -->
+	<section class="section posts-entry">
+		<div class="container">
+			<div class="row mb-4">
+				<div class="col-sm-6">
+					<h2 class="posts-entry-title">Sports</h2>
+				</div>
+				<div class="col-sm-6 text-sm-end"><a href="category.html" class="read-more">View All</a></div>
+			</div>
+			<div class="row g-3">
+				<div class="col-md-9 order-md-2">
+					<div class="row g-3">
+						{% for i in blog_obj_sports_3_to_5 %}
+						<div class="col-md-6">
+							<div class="blog-entry">
+								<a href="{% url 'single-blog' i.blog_slug %}" class="img-link">
+									<img src="{{i.image.url}}" alt="Image" class="img-fluid">
+								</a>
+								<span class="date">{{i.created_at}}</span>
+								<h2><a href="single.html">{{i.title}}</a></h2>
+								<p>{{i.description | truncatechars:100}}</p>
+								<p><a href="{% url 'single-blog' i.blog_slug %}" class="btn btn-sm btn-outline-primary">Read More</a></p>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="col-md-3">
+					<ul class="list-unstyled blog-entry-sm">
+						{% for i in blog_obj_sports_1_to_3 %}
+						<li>
+							<span class="date">Apr. 14th, 2022</span>
+							<h3><a href="{% url 'single-blog' i.blog_slug %}">{{i.title}}</a></h3>
+							<p>{{i.description | truncatechars:70}}</p>
+							<p><a href="{% url 'single-blog' i.blog_slug %}" class="read-more">Continue Reading</a></p>
+						</li>
+
+						{% endfor %}
+							
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+
+			<div class="row mb-4">
+				<div class="col-sm-6">
+					<h2 class="posts-entry-title">Education</h2>
+				</div>
+				<div class="col-sm-6 text-sm-end"><a href="category.html" class="read-more">View All</a></div>
+			</div>
+
+			<div class="row">
+				{% for i in blog_obj_education_1_to_6 %}
+				<div class="col-lg-4 mb-4">
+					<div class="post-entry-alt">
+						<a href="single.html" class="img-link"><img src="{{i.image.url}}" alt="Image" class="img-fluid"></a>
+						<div class="excerpt">
+							
+
+							<h2><a href="single.html">{{i.title}}</a></h2>
+							
+
+							<p>{{i.description | truncatechars:100}}</p>
+							<p><a href="{% url 'single-blog' i.blog_slug %}" class="read-more">Continue Reading</a></p>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			
+		</div>
+	</section>
+
+	<div class="section bg-light">
+		<div class="container">
+
+			<div class="row mb-4">
+				<div class="col-sm-6">
+					<h2 class="posts-entry-title">Business</h2>
+				</div>
+				<div class="col-sm-6 text-sm-end"><a href="category.html" class="read-more">View All</a></div>
+			</div>
+
+			<div class="row align-items-stretch retro-layout-alt">
+				
+				<div class="col-md-5 order-md-2">
+					{% if blog_obj_business_1 %}
+					<a href="{% url 'single-blog' blog_obj_business_1.blog_slug %}" class="hentry img-1 h-100 gradient">
+						<div class="featured-img" style="background-image: url('{{blog_obj_business_1.image.url}}');"></div>
+						<div class="text">
+							<span>{{blog_obj_business_1.created_at}}</span>
+							<h2>{{blog_obj_business_1.title}}</h2>
+						</div>
+					</a>
+					{% endif %}
+				</div>
+				
+				<div class="col-md-7">
+					{% if blog_obj_business_5 %}
+					<a href="single.html" class="hentry img-2 v-height mb30 gradient">
+						<div class="featured-img" style="background-image: url('{{blog_obj_business_5.image.url}}');"></div>
+						<div class="text text-sm">
+							<span>{{blog_obj_business_5.created_at}}</span>
+							<h2>{{blog_obj_business_5.title}}</h2>
+						</div>
+					</a>
+					{% endif %}
+					<div class="two-col d-block d-md-flex justify-content-between">
+						{% for i in blog_obj_business_2_to_4 %}
+						<a href="{% url 'single-blog' i.blog_slug %}" class="hentry v-height img-2 gradient">
+							<div class="featured-img" style="background-image: url('{{i.image.url}}');"></div>
+							<div class="text text-sm">
+								<span>{{i.created_at}}</span>
+								<h2>{{i.title}}</h2>
+							</div>
+						</a>
+						{% endfor %}
+					</div>  
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	{% endblock %}
